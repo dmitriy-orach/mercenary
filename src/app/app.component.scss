@@ -1,0 +1,29 @@
+a {
+    display: inline-block;
+    color: #fff;
+    background: #000;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid #000;
+
+    
+    &:not(:last-child) {
+        margin-right: 15px;
+    }
+
+    &.authoriz {
+        background: #fff;
+        color: #000;
+        border: 1px solid #000;
+        transition: .3s;
+
+        &:hover {
+            color: #fff;
+            transition: .3s;
+            background: #000;
+        }
+    }
+}

@@ -1,0 +1,60 @@
+<div class="register">
+    <div class="container">
+        <div class="register__header">
+            <h1>{{title}}</h1>
+        </div>
+        <div class="register__form">
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
+                <label for="name">
+                    <span>Email</span>
+                    <input 
+                        type="email"
+                        name="email" ngModel 
+                        id="email" 
+                        placeholder="Email" 
+                        formControlName="email"
+                    >
+                </label>
+                <div class="err" *ngIf="emailControl.invalid && emailControl.touched">
+                    Wrong email format! Enter email!
+                </div>
+
+                <label for="password">
+                    <span>Password</span>
+                    <input
+                        type="password" 
+                        id="password" 
+                        placeholder="Password" 
+                        formControlName="password"
+                    >
+                </label>
+                <div class="err" *ngIf="passControl.invalid && passControl.touched">
+                    Password must be more than 8 characters!
+                </div>
+
+                <label for="password_repeated">
+                    <span>Enter your password again</span>
+                    <input
+                        type="password" 
+                        id="password_repeated" 
+                        placeholder="Enter your password again" 
+                        formControlName="password_repeated"
+                    >
+                </label>
+                <div class="err" *ngIf="passRepControl.errors?.Repeated">
+                    The repeated password must be identical!
+                </div>
+
+                <!-- <label class="agree" for="agree">
+                    <input type="checkbox" fornControlName="agree" id="agree">
+                    <span>I have read and agree with the document User Agreement </span>
+                    <a href="#">Security Policy</a>
+                </label> -->
+
+                <div class="register__btn-block">
+                    <button type="submit" [disabled]="!registerForm.valid">Register now</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

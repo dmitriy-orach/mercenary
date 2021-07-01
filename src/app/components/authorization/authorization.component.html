@@ -1,0 +1,36 @@
+<div class="autorization">
+    <div class="container">
+        <div class="autorization__header">
+            <h1>{{title}}</h1>
+        </div>
+        <div class="autorization__form">
+            <form [formGroup]="autorizationForm" (ngSubmit)="onSubmit(autorizationForm.value)">
+                <label for="name">
+                    <span>Name</span>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        placeholder="Name" 
+                        formControlName="name"
+                    >
+                </label>
+                <label for="password">
+                    <span>Password</span>
+                    <input
+                        type="password" 
+                        id="password" 
+                        placeholder="Password" 
+                        formControlName="password"
+                    >
+                </label>
+                <label class="remember" for="remember">
+                    <input type="checkbox" fornControlName="remember" id="remember">
+                    <span>Remember</span>
+                </label>
+                <div class="autorization__btn-block">
+                    <button type="submit" [disabled]="!autorizationForm.valid">Sing in</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
