@@ -8,13 +8,14 @@ import { CustomValidator } from 'src/app/utils/validators';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+
   public title: string = 'Registration page'
 
   public registerForm: FormGroup | any;
 
   public createRegisterForm() {
     this.registerForm = this.fb.group({
-      email: new FormControl('', [
+      email: new FormControl(null, [
         Validators.required,
         Validators.minLength(5),
         Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")
@@ -23,13 +24,13 @@ export class RegisterComponent implements OnInit {
         Validators.required,
         Validators.minLength(8),
       ]),
-      password_repeated: new FormControl('', [
+      password_repeated: new FormControl(null, [
         Validators.required,
         Validators.minLength(8),
-        // CustomValidator.passwordRepeatedValidator(this.passControl.value)
+        CustomValidator.passwordRepeatedValidator(this.registerForm.get("password"))
       ]),
       // agree:new FormControl('' ,[])
-  });
+    });
   }
 
   constructor(private fb: FormBuilder) { }

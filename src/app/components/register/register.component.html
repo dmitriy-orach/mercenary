@@ -1,7 +1,7 @@
 <div class="register">
     <div class="container">
         <div class="register__header">
-            <h1>{{title}}</h1>
+            <!-- <h1>{{title}}</h1> -->
         </div>
         <div class="register__form">
             <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
@@ -41,7 +41,7 @@
                         formControlName="password_repeated"
                     >
                 </label>
-                <div class="err" *ngIf="passRepControl.errors?.Repeated">
+                <div class="err" *ngIf="passRepControl.errors?.Repeated || passControl.touched">
                     The repeated password must be identical!
                 </div>
 

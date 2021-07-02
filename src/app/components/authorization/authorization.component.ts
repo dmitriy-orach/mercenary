@@ -22,10 +22,8 @@ export class AuthorizationComponent implements OnInit {
         Validators.required,
         Validators.minLength(8),
       ]),
-      remember:new FormControl('', [
-        Validators.required
-      ])
-  });
+      remember:new FormControl('')
+    });
   }
 
   constructor() { }
